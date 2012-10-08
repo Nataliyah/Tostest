@@ -1,0 +1,6 @@
+--- 
+open_files: 
+  - app/assets/stylesheets/scaffolds.css.scss
+  - app/views/layouts/application.html.erb
+  - app/views/layouts/_navigation.html.erb
+  - app/views/words/edit.html.erb

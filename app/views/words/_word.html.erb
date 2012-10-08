@@ -1,0 +1,18 @@
+  <tr>
+    <td><%= word.test_id %></td>
+    <td><%= word.id %></td>
+    <td><%= word.ang %></td>
+    <td><%= word.pol1 %></td>
+    <td><%= word.pol2 %></td>
+    <td><%= word.pol3 %></td>
+    <td><%= word.opis_ang %></td>
+    <td><%= word.opis_pol %></td>
+    <% if word.word_stat == nil%>
+      <td>0/0
+    <% else %>
+       <td><%= word.word_stat.correct %>/<%= word.word_stat.count %> 
+    <% end %>
+    <td><%#= link_to 'Show', [word.test, word] %></td>
+    <td><%= link_to 'Edit', edit_test_word_path(word.test, word) %></td>
+    <td><%= link_to 'Destroy', [word.test, word], confirm: 'Are you sure?', method: :delete %></td>
+  </tr>

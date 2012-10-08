@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @test.id %>
+  <b>Title:</b>
+  <%= @test.title %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @test.subtitle %>
+</p>
+
+<p>
+  <b>Image:</b><%= image_tag @test.image, :size => "16x16" %>
+  <%= @test.image %>
+</p>
+
+<h2>Category</h2>
+<p><%= @test.category.name %></p>
+
+<h2>Words</h2>
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Id</th>
+    <th>Ang</th>
+    <th>Pol1</th>
+    <th>Pol2</th>
+    <th>Pol3</th>
+    <th>Opis ang</th>
+    <th>Opis pol</th>
+    <th>Stats</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%= render @test.words %>
+</table>
+
+<h2>Add a word:</h2>
+<%= render "words/form" %>
+
+<%= link_to 'Edit', edit_test_path(@test) %>
+<%= link_to 'Back', tests_path %>

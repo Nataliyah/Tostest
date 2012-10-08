@@ -1,0 +1,50 @@
+<h1>Dostępne testy</h1>
+<br />
+
+<%= form_tag "tests/start_test" do %>
+
+<table>
+  
+  <tr>
+    <th></th>
+    <th><%= sort_by "Title" %></th>
+    <th><%= sort_by "Subtitle" %></th>
+    <th><%= sort_by "Icon" %></th>
+    <th><%= sort_by "Category_id" %></th>
+    <th><%= sort_by "Words" %></th>
+    <th><%= sort_by "Created_at" %></th>
+  </tr>
+  
+<% checked = true %>
+<% @tests.each do |test| %>
+<tr>
+    <td><%= radio_button_tag 'id', test.id, checked %></td><%#= check_box_tag 'chosen' %>
+    <td><%= test.title %></td>
+    <td><%= test.subtitle %></td>
+    <td><%= image_tag test.image, :size => "16x16" %></td>
+    <td><%= test.category_id %></td>
+    <td><%= test.words.count %></td>
+    <td><%= test.created_at.strftime("%Y.%m.%d ") %></td>
+    <td><%= link_to 'Show', test %></td>
+    <td><%= link_to 'Edit', edit_test_path(test) %></td>
+    <td><%= link_to 'Destroy', test, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%#= link_to 'Rozpocznij test', :action => "start_test", :id => test.id %></td>
+  </tr>
+<% checked = false %>
+<% end %>
+
+</table>
+
+<br />
+<p>
+<%= radio_button_tag 'lang', 'pol_ang', true %><%= image_tag 'pol_ang.png' %><br />
+<%= radio_button_tag 'lang', 'ang_pol' %><%= image_tag 'ang_pol.png' %>
+</p>
+
+<br />
+<%= submit_tag 'Start' %>
+<% end %>
+
+<br />
+
+<%= link_to "New Test", new_test_path %>

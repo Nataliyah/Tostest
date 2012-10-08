@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  count: 1
+  correct: 1
+  word: 
+
+two:
+  count: 1
+  correct: 1
+  word: 

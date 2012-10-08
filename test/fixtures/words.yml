@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ang: MyString
+  pol1: MyString
+  pol2: MyString
+  pol3: MyString
+  opis_ang: MyText
+  opis_pol: MyText
+
+two:
+  ang: MyString
+  pol1: MyString
+  pol2: MyString
+  pol3: MyString
+  opis_ang: MyText
+  opis_pol: MyText

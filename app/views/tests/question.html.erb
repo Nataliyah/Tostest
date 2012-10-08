@@ -1,0 +1,52 @@
+<h1>Question <%= session[:question_count] %>/<%= @test.words.count %> (Score:<%= session[:points] %>)</h1>
+Stats: <%= @word_stat[:correct] %>/<%= @word_stat[:count] %>
+<p>
+<%= image_tag @test.image, :size => "16x16" %>
+Test <%= @test.id %>: <%= @test.title %>
+</p>
+
+<% if session[:lang]=='ang_pol' %>
+  <%= image_tag 'ang_pol.png' %>
+  <% sorce_word = @word.ang %>
+  <% lang = "Polski" %>
+<% else %>
+  <%= image_tag 'pol_ang.png' %>
+  <% sorce_word = @word.pol1 %>
+  <% lang = "English" %>
+<% end %>
+
+<p>Question Number <%= @word.id %></p>
+
+<%= form_tag('check') do |f| %>
+
+  <div class="field">
+    <b><%= label_tag sorce_word %></b><br />
+  </div>
+  
+  <div class="field">
+    <%= label_tag lang %><br />
+    <% if @result!="-1" %>
+      <%= text_field_tag :user_word, @answer %>
+    <% else %>
+      <%= text_field_tag :user_word %>
+    <% end %>
+  </div>
+  
+  <%= hidden_field_tag :test_id, @test.id %>
+  <%= hidden_field_tag :id, @word.id %>
+
+  <% if @result=="-1" %>
+  <div class="actions">
+    <%= submit_tag "Apply" %>
+  </div>
+  <% end %>
+
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<p id="error"><%= flash[:error] %></p>
+<p id="info"><%= flash[:info] %><b><%= flash[:answer] %></b></p>
+
+<%= link_to 'Exit', tests_path %>
+<%= link_to 'Prev', :action => "question", :test_id => @test.id, :id => @word.id, :future => -1 %>
+<%= link_to 'Next', :action => "question", :test_id => @test.id, :id => @word.id, :future => 1 %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tostest</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+<div id="div_all">
+  
+  <div id="div_heading">
+    <%= render 'layouts/navigation' %>
+  </div>
+  
+  <div id="div_content">
+    <%#= params.inspect %>
+    <%= yield %>
+  </div>
+
+</div>
+
+</body>
+</html>

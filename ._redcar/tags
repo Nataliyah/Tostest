@@ -1,4 +1,4 @@
-1352209154
+1352210508
 AddCategoryToTests	C:/Sites/Tostest/db/migrate/20121006170253_add_category_to_tests.rb	class AddCategoryToTests 
 AddTestToWords	C:/Sites/Tostest/db/migrate/20121006141706_add_test_to_words.rb	class AddTestToWords 
 Application	C:/Sites/Tostest/config/application.rb	  class Application 

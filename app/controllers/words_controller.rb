@@ -1,7 +1,7 @@
 class WordsController < ApplicationController
   def create
     @test = Test.find(params[:test_id])
-    @word = @test.words.create(params[:word]) #creates and saves the comment, and will automatically link the comment so that it belongs to that particular post.
+    @word = @test.words.create(params[:word]) #creates and saves the word, and will automatically link the word so that it belongs to that particular test.
     redirect_to test_path(@test)
   end
   def destroy

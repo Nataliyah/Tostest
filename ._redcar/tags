@@ -1,4 +1,4 @@
-1349710880
+1352209154
 AddCategoryToTests	C:/Sites/Tostest/db/migrate/20121006170253_add_category_to_tests.rb	class AddCategoryToTests 
 AddTestToWords	C:/Sites/Tostest/db/migrate/20121006141706_add_test_to_words.rb	class AddTestToWords 
 Application	C:/Sites/Tostest/config/application.rb	  class Application 
@@ -43,14 +43,14 @@ change	C:/Sites/Tostest/db/migrate/20121006170253_add_category_to_tests.rb	  def
 change	C:/Sites/Tostest/db/migrate/20121008151603_create_word_stats.rb	  def change
 check	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def check
 create	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def create
-create	C:/Sites/Tostest/app/controllers/words_controller.rb	  def create
 create	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def create
+create	C:/Sites/Tostest/app/controllers/words_controller.rb	  def create
 destroy	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def destroy
-destroy	C:/Sites/Tostest/app/controllers/words_controller.rb	  def destroy
 destroy	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def destroy
+destroy	C:/Sites/Tostest/app/controllers/words_controller.rb	  def destroy
 edit	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def edit
-edit	C:/Sites/Tostest/app/controllers/words_controller.rb	  def edit
 edit	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def edit
+edit	C:/Sites/Tostest/app/controllers/words_controller.rb	  def edit
 if_correct	C:/Sites/Tostest/app/controllers/application_controller.rb	  def if_correct(word1, word2)
 index	C:/Sites/Tostest/app/controllers/home_controller.rb	  def index
 index	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def index
@@ -68,5 +68,5 @@ sort_direction	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def sort_d
 start_test	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def start_test
 test_homepage	C:/Sites/Tostest/test/performance/browsing_test.rb	  def test_homepage
 update	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def update
-update	C:/Sites/Tostest/app/controllers/words_controller.rb	  def update
 update	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def update
+update	C:/Sites/Tostest/app/controllers/words_controller.rb	  def update

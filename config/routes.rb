@@ -13,8 +13,13 @@ Tostest::Application.routes.draw do
   get "tests/question"
   get "tests/prev_question"
   get "tests/next_question"
+  get "tests/check"
+  post "tests/summary"
+  post "tests/question"
   post "tests/check"
   post "tests/start_test"
+  post "tests/after_question"
+  post "tests/next_question"
   
   resources :categories
   

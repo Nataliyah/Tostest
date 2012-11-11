@@ -1,52 +1,64 @@
-<h1>Question <%= session[:question_count] %>/<%= @test.words.count %> (Score:<%= session[:points] %>)</h1>
+Session mode: <%= session[:mode] %><br />
+Session test_id: <%= session[:test_id] %><br />
+Session word_id: <%= session[:word_id] %><br /><br />
+
+<!-- Test -->
+<%= image_tag helper_flag%><br />
+Test [<%= @test.id %>] <%= @test.title %>
+<%= image_tag @test.image, :size => helper_iconSize %>
+
+<br />
+
+<!-- Question -->
+Question <%= helper_questionNr %>/<%= @test.words.count %>, 
+Score:<%= helper_points %>,
 Stats: <%= @word_stat[:correct] %>/<%= @word_stat[:count] %>
-<p>
-<%= image_tag @test.image, :size => "16x16" %>
-Test <%= @test.id %>: <%= @test.title %>
-</p>
 
-<% if session[:lang]=='ang_pol' %>
-  <%= image_tag 'ang_pol.png' %>
-  <% sorce_word = @word.ang %>
-  <% lang = "Polski" %>
-<% else %>
-  <%= image_tag 'pol_ang.png' %>
-  <% sorce_word = @word.pol1 %>
-  <% lang = "English" %>
-<% end %>
+<br /><br />
 
-<p>Question Number <%= @word.id %></p>
 
-<%= form_tag('check') do |f| %>
+<!-- Miejsce do wpisywania odpowiedzi -->
+<%= form_tag('after_question') do |f| %>
 
+  <!-- oryginalne haslo -->
   <div class="field">
-    <b><%= label_tag sorce_word %></b><br />
+    <b><%= label_tag helper_sourceWord(@word) %></b><br />
   </div>
   
+  <!-- odpowiedz -->
   <div class="field">
-    <%= label_tag lang %><br />
-    <% if @result!="-1" %>
-      <%= text_field_tag :user_word, @answer %>
-    <% else %>
-      <%= text_field_tag :user_word %>
-    <% end %>
+    <%= label_tag helper_langLabel %>:<br />
+    <%= text_field_tag :user_word, @answer %>
   </div>
   
-  <%= hidden_field_tag :test_id, @test.id %>
   <%= hidden_field_tag :id, @word.id %>
 
-  <% if @result=="-1" %>
+  <!-- Przycisk -->
   <div class="actions">
-    <%= submit_tag "Apply" %>
+  <%# if @result=="-1" %>
+      <%= submit_tag "Apply" %>
+    <%# end %>
   </div>
-  <% end %>
 
 <% end %>
 
+<!-- Answer, mark etc -->
 <p id="notice"><%= notice %></p>
 <p id="error"><%= flash[:error] %></p>
 <p id="info"><%= flash[:info] %><b><%= flash[:answer] %></b></p>
 
+<!-- Jesli byla odpowiedz, to wyswietl przycisk Next lub Zakoncz -->
+<% if @result!="-1" %>
+  <% if helper_questionNr>=@test.words.count %>
+    <%= button_to 'Zakoncz', :action => "summary" %>
+  <% else %>
+    <%= button_to 'Next', :action => "question", :id => @word.id, :future => 1 %>
+  <% end %>
+<% end %>
+
+<!-- Navitagion -->
+<p>
 <%= link_to 'Exit', tests_path %>
-<%= link_to 'Prev', :action => "question", :test_id => @test.id, :id => @word.id, :future => -1 %>
-<%= link_to 'Next', :action => "question", :test_id => @test.id, :id => @word.id, :future => 1 %>
+<%= link_to 'Prev', :action => "question", :id => @word.id, :future => -1 %>
+<%= link_to 'Next', :action => "question", :id => @word.id, :future => 1 %>
+</p>

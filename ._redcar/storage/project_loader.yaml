@@ -1,6 +1,7 @@
 --- 
 open_files: 
-  - app/views/tests/index.html.erb
-  - app/controllers/words_controller.rb
-  - app/views/tests/show.html.erb
-  - app/views/words/_form.html.erb
+  - app/views/tests/question.html.erb
+  - app/controllers/application_controller.rb
+  - app/helpers/questions_helper.rb
+  - app/helpers/tests_helper.rb
+  - app/controllers/tests_controller.rb

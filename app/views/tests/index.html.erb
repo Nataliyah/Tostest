@@ -8,7 +8,6 @@
   <tr>
     <th></th>
     <th><%= sort_by "Title" %></th>
-    <th><%= sort_by "Subtitle" %></th>
     <th><%= sort_by "Icon" %></th>
     <th><%= sort_by "Category_id" %></th>
     <th><%= sort_by "Words" %></th>
@@ -20,12 +19,10 @@
 <tr>
     <td><%= radio_button_tag 'id', test.id, checked %></td><%#= check_box_tag 'chosen' %>
     <td><%= test.title %></td>
-    <td><%= test.subtitle %></td>
     <td><%= image_tag test.image, :size => "16x16" %></td>
-    <td><%= test.category_id %></td>
+    <td><%= test.category.name %></td>
     <td><%= test.words.count %></td>
     <td><%= test.created_at.strftime("%Y.%m.%d ") %></td>
-    <td><%= link_to 'Show', test %></td>
     <td><%= link_to 'Edit', edit_test_path(test) %></td>
     <td><%= link_to 'Destroy', test, confirm: 'Are you sure?', method: :delete %></td>
     <td><%#= link_to 'Rozpocznij test', :action => "start_test", :id => test.id %></td>
@@ -47,4 +44,4 @@
 
 <br />
 
-<%= link_to "New Test", new_test_path %>
+<%= link_to "Dodaj nowy test", new_test_path %>

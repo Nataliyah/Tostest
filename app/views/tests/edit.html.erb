@@ -1,6 +1,35 @@
-<h1>Editing test</h1>
+<h3>Editing test</h3>
+
+<p id="notice"><%= notice %></p>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @test %>
+Category
+<p><%= @test.category.name %></p>
+
+<br /><br />
+<h2>Words</h2>
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Id</th>
+    <th>Ang</th>
+    <th>Pol1</th>
+    <th>Pol2</th>
+    <th>Pol3</th>
+    <th>Opis ang</th>
+    <th>Opis pol</th>
+    <th>Stats</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%= render @test.words %>
+</table>
+
+<br /><br />
+<h2>Add a word:</h2>
+<%= render "words/form" %>
+
+<%#= link_to 'Edit', edit_test_path(@test) %>
 <%= link_to 'Back', tests_path %>

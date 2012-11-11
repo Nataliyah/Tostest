@@ -3,36 +3,57 @@ class TestsController < ApplicationController
   
   #############################################################
   
+  def summary
+  end
+  
+  def after_question
+    case session[:mode]
+      when :next_question then redirect_to :action => 'next_question', :future => 0, :result => params[:result], :answer => params[:answer]
+      when :check then redirect_to :action => 'check', :future => 0, :result => params[:result], :answer => params[:answer]
+      when :summary then redirect_to :action => 'summary'
+    end
+  end
+  
   def check
     answer = params[:user_word]
-    test = Test.find(params[:test_id])
+    test = Test.find(session[:test_id])
     words = test.words
-    word = words.find(params[:id])
+    word = words.find(session[:word_id])
     proper_word = (session[:lang]=='ang_pol') ? word.pol1 : word.ang
     result = if_correct(answer, proper_word)
     wstat = word.word_stat
-    wstat ||= WordStat.create(:word_id => word.id, :count => 0, :correct => 0)
+    wstat ||= WordStat.create(session[:word_id], :count => 0, :correct => 0)
     wstat.count += 1
     if result==1
       wstat.correct += 1
     end
     wstat.save
-    redirect_to :action => 'question', :test_id => test.id, :id => word.id, :future => 0, :result => result, :answer => answer
+  
+    if (session[:question_count] >= test.words.count)
+      session[:mode] = :summary
+    else
+      session[:mode] = :next_question
+    end
+    redirect_to :action => 'question', :future => 0, :result => result, :answer => answer
+  end
+  
+  def next_question
+    fun_next_question(session[:test_id], session[:word_id])
+    session[:mode] = :check
+    redirect_to :action => 'question'
   end
   
   def start_test
     test = Test.find(params[:id])
     words = test.words
     reset_session
-    session[:question_count] = 1
-    session[:points] = 0
-    session[:lang] = params[:lang]
-    redirect_to :action => 'question', :test_id => test.id, :id => words.first.id, :future => 0
+    set_testSession(test, words.first, params[:lang])
+    redirect_to :action => 'question', :future => 0
   end
     
   def question
-    @test = Test.find(params[:test_id])
-    correct = proper_word = (session[:lang]=='ang_pol') ? @test.words.find(params[:id]).pol1 : @test.words.find(params[:id]).ang
+    @test = Test.find(session[:test_id])
+    correct = proper_word = (session[:lang]=='ang_pol') ? @test.words.find(session[:word_id]).pol1 : @test.words.find(session[:word_id]).ang
     @answer = params[:answer]
     
     flash[:notice] = nil
@@ -53,19 +74,19 @@ class TestsController < ApplicationController
       flash[:notice] = "Correct answer!"
     end
     
-    item_id = params[:id]
     case params[:future]
-    when "1" then item_id = next_question(params[:test_id], params[:id]); session[:question_count] += 1;
-    when "-1" then item_id = prev_question(params[:test_id], params[:id])
+    when "1" then next_question(session[:test_id], session[:word_id])
+    when "-1" then prev_question(session[:test_id], session[:word_id])
     end
     
-    @word = @test.words.find(item_id)
+    @word = Word.find(session[:word_id])
     
     @word_stat = { :count => 0, :correct => 0}
     if @word.word_stat != nil
       @word_stat[:count] = @word.word_stat.count
       @word_stat[:correct] = @word.word_stat.correct
     end
+    
   end
   
   ############################################################
@@ -77,6 +98,7 @@ class TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
     @word = Word.new(:test=>@test)
+    @categories = Category.all
     #@word = @test.words.build
   end
   
@@ -87,6 +109,7 @@ class TestsController < ApplicationController
   
   def edit
     @test = Test.find(params[:id])
+    @word = Word.new(:test=>@test)
     @categories = Category.all
   end
   
@@ -125,24 +148,7 @@ class TestsController < ApplicationController
   end
   
   private
-  
-  def next_question(test_id, id)
-    test = Test.find(test_id)
-    words = test.words
-    item = words.where("id > ?", id).first
-    item ||= words.first
-    return item.id
-  end
-  
-  def prev_question(test_id, id)
-    test = Test.find(test_id)
-    words = test.words
-    item = words.where("id < ?", id).last
-    item ||= words.last
-    return item.id
-  end
-  
-  
+    
   def sort_column
     params[:sort] || "name"
   end

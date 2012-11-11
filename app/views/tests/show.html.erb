@@ -1,22 +1,10 @@
+<h3>Editing test</h3>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @test.id %>
-  <b>Title:</b>
-  <%= @test.title %>
-</p>
+<%= render 'form' %>
 
-<p>
-  <b>Subtitle:</b>
-  <%= @test.subtitle %>
-</p>
-
-<p>
-  <b>Image:</b><%= image_tag @test.image, :size => "16x16" %>
-  <%= @test.image %>
-</p>
-
-<h2>Category</h2>
+Category
 <p><%= @test.category.name %></p>
 
 <h2>Words</h2>

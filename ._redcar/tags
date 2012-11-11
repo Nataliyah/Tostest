@@ -1,4 +1,4 @@
-1352210508
+1352642864
 AddCategoryToTests	C:/Sites/Tostest/db/migrate/20121006170253_add_category_to_tests.rb	class AddCategoryToTests 
 AddTestToWords	C:/Sites/Tostest/db/migrate/20121006141706_add_test_to_words.rb	class AddTestToWords 
 Application	C:/Sites/Tostest/config/application.rb	  class Application 
@@ -19,12 +19,13 @@ HomeController	C:/Sites/Tostest/app/controllers/home_controller.rb	class HomeCon
 HomeControllerTest	C:/Sites/Tostest/test/functional/home_controller_test.rb	class HomeControllerTest 
 HomeHelper	C:/Sites/Tostest/app/helpers/home_helper.rb	module HomeHelper
 HomeHelperTest	C:/Sites/Tostest/test/unit/helpers/home_helper_test.rb	class HomeHelperTest 
+QuestionsHelper	C:/Sites/Tostest/app/helpers/questions_helper.rb	module QuestionsHelper
 Test	C:/Sites/Tostest/app/models/test.rb	class Test 
 TestCase	C:/Sites/Tostest/test/test_helper.rb	class ActiveSupport::TestCase
 TestTest	C:/Sites/Tostest/test/unit/test_test.rb	class TestTest 
 TestsController	C:/Sites/Tostest/app/controllers/tests_controller.rb	class TestsController 
 TestsControllerTest	C:/Sites/Tostest/test/functional/tests_controller_test.rb	class TestsControllerTest 
-TestsHelper	C:/Sites/Tostest/app/helpers/tests_helper.rb	module TestsHelper 
+TestsHelper	C:/Sites/Tostest/app/helpers/tests_helper.rb	module TestsHelper
 TestsHelperTest	C:/Sites/Tostest/test/unit/helpers/tests_helper_test.rb	class TestsHelperTest 
 Tostest	C:/Sites/Tostest/config/application.rb	module Tostest
 Word	C:/Sites/Tostest/app/models/word.rb	class Word 
@@ -35,6 +36,7 @@ WordsController	C:/Sites/Tostest/app/controllers/words_controller.rb	class Words
 WordsControllerTest	C:/Sites/Tostest/test/functional/words_controller_test.rb	class WordsControllerTest 
 WordsHelper	C:/Sites/Tostest/app/helpers/words_helper.rb	module WordsHelper
 WordsHelperTest	C:/Sites/Tostest/test/unit/helpers/words_helper_test.rb	class WordsHelperTest 
+after_question	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def after_question
 change	C:/Sites/Tostest/db/migrate/20121003183447_create_words.rb	  def change
 change	C:/Sites/Tostest/db/migrate/20121006134806_create_tests.rb	  def change
 change	C:/Sites/Tostest/db/migrate/20121006141706_add_test_to_words.rb	  def change
@@ -43,30 +45,39 @@ change	C:/Sites/Tostest/db/migrate/20121006170253_add_category_to_tests.rb	  def
 change	C:/Sites/Tostest/db/migrate/20121008151603_create_word_stats.rb	  def change
 check	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def check
 create	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def create
-create	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def create
 create	C:/Sites/Tostest/app/controllers/words_controller.rb	  def create
+create	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def create
 destroy	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def destroy
-destroy	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def destroy
 destroy	C:/Sites/Tostest/app/controllers/words_controller.rb	  def destroy
+destroy	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def destroy
 edit	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def edit
-edit	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def edit
 edit	C:/Sites/Tostest/app/controllers/words_controller.rb	  def edit
+edit	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def edit
+fun_next_question	C:/Sites/Tostest/app/controllers/application_controller.rb	  def fun_next_question(test_id, act_word_id)
+fun_prev_question	C:/Sites/Tostest/app/controllers/application_controller.rb	  def fun_prev_question(test_id, act_word_id)
+helper_flag	C:/Sites/Tostest/app/helpers/tests_helper.rb	  def helper_flag
+helper_iconSize	C:/Sites/Tostest/app/helpers/tests_helper.rb	  def helper_iconSize
+helper_langLabel	C:/Sites/Tostest/app/helpers/tests_helper.rb	  def helper_langLabel
+helper_points	C:/Sites/Tostest/app/helpers/questions_helper.rb	  def helper_points
+helper_questionNr	C:/Sites/Tostest/app/helpers/questions_helper.rb	  def helper_questionNr
+helper_sourceWord	C:/Sites/Tostest/app/helpers/tests_helper.rb	  def helper_sourceWord(word)
 if_correct	C:/Sites/Tostest/app/controllers/application_controller.rb	  def if_correct(word1, word2)
 index	C:/Sites/Tostest/app/controllers/home_controller.rb	  def index
 index	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def index
 index	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def index
 new	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def new
 new	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def new
-next_question	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def next_question(test_id, id)
-prev_question	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def prev_question(test_id, id)
+next_question	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def next_question
 question	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def question
+set_testSession	C:/Sites/Tostest/app/controllers/application_controller.rb	  def set_testSession(test, word, lang)
 show	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def show
 show	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def show
 sort_by	C:/Sites/Tostest/app/helpers/application_helper.rb	  def sort_by(_column, _title=nil)
 sort_column	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def sort_column
 sort_direction	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def sort_direction
 start_test	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def start_test
+summary	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def summary
 test_homepage	C:/Sites/Tostest/test/performance/browsing_test.rb	  def test_homepage
 update	C:/Sites/Tostest/app/controllers/categories_controller.rb	  def update
-update	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def update
 update	C:/Sites/Tostest/app/controllers/words_controller.rb	  def update
+update	C:/Sites/Tostest/app/controllers/tests_controller.rb	  def update

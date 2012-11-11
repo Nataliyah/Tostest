@@ -29,9 +29,6 @@ cursor_positions:
   - :path: app/helpers/application_helper.rb
     :cursor_offset: 344
     :timestamp: 2012-10-06 22:26:48.336000 +02:00
-  - :path: app/helpers/tests_helper.rb
-    :cursor_offset: 18
-    :timestamp: 2012-10-07 16:58:32.730000 +02:00
   - :path: app/assets/stylesheets/words.css.scss
     :cursor_offset: 0
     :timestamp: 2012-10-03 20:34:48.524000 +02:00
@@ -44,12 +41,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/application.css
     :cursor_offset: 546
     :timestamp: 2012-10-03 20:22:22.224000 +02:00
-  - :path: app/controllers/application_controller.rb
-    :cursor_offset: 149
-    :timestamp: 2012-10-07 17:46:12.482000 +02:00
-  - :path: app/views/tests/edit.html.erb
-    :cursor_offset: 107
-    :timestamp: 2012-10-06 17:01:14.325000 +02:00
   - :path: app/views/tests/start_test.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-07 15:18:29.756000 +02:00
@@ -81,9 +72,6 @@ cursor_positions:
     :timestamp: 2012-10-08 11:52:38.664000 +02:00
     :selection_offset: 55
     :block_selection_mode: false
-  - :path: app/views/tests/question.html.erb
-    :cursor_offset: 156
-    :timestamp: 2012-10-08 14:30:00.224000 +02:00
   - :path: db/migrate/20121006170253_add_category_to_tests.rb
     :cursor_offset: 120
     :timestamp: 2012-10-06 19:04:00.855000 +02:00
@@ -102,33 +90,21 @@ cursor_positions:
   - :path: db/migrate/20121006141706_add_test_to_words.rb
     :cursor_offset: 112
     :timestamp: 2012-10-06 16:20:16.780000 +02:00
-  - :path: app/views/tests/summary.html.erb
-    :cursor_offset: 23
-    :timestamp: 2012-10-07 15:15:30.512000 +02:00
   - :path: app/views/layouts/navigation
     :cursor_offset: 0
     :timestamp: 2012-10-08 10:11:08.082000 +02:00
   - :path: app/assets/stylesheets/scaffolds.css.scss
     :cursor_offset: 1020
     :timestamp: 2012-10-08 12:04:36.680000 +02:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 355
-    :timestamp: 2012-10-08 11:12:44.335000 +02:00
   - :path: app/views/categories/index.html.erb
     :cursor_offset: 362
     :timestamp: 2012-10-08 12:01:21.200000 +02:00
   - :path: app/views/tests/check.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-07 16:27:52.172000 +02:00
-  - :path: app/views/tests/_form.html.erb
-    :cursor_offset: 515
-    :timestamp: 2012-10-06 21:13:02.952000 +02:00
   - :path: app/views/words/edit.html.erb
     :cursor_offset: 43
     :timestamp: 2012-10-07 12:25:45.129000 +02:00
-  - :path: app/views/layouts/_navigation.html.erb
-    :cursor_offset: 254
-    :timestamp: 2012-10-08 10:36:37.271000 +02:00
   - :path: app/views/tests/new.html.erb
     :cursor_offset: 58
     :timestamp: 2012-10-06 16:37:43.092000 +02:00
@@ -141,9 +117,6 @@ cursor_positions:
   - :path: app/views/words/_word.html.erb
     :cursor_offset: 637
     :timestamp: 2012-10-08 17:41:20.217000 +02:00
-  - :path: app/controllers/tests_controller.rb
-    :cursor_offset: 1568
-    :timestamp: 2012-10-08 17:33:49.009000 +02:00
   - :path: app/controllers/home_controller.rb
     :cursor_offset: 90
     :timestamp: 2012-10-03 20:28:55.035000 +02:00
@@ -158,25 +131,72 @@ cursor_positions:
     :timestamp: 2012-11-04 19:58:52.725000 +01:00
     :selection_offset: 233
     :block_selection_mode: false
-  - :path: config/routes.rb
-    :cursor_offset: 428
-    :timestamp: 2012-10-08 13:23:55.736000 +02:00
   - :path: app/controllers/categories_controller.rb
     :cursor_offset: 162
     :timestamp: 2012-10-06 19:57:38.255000 +02:00
-  - :path: app/views/tests/index.html.erb
-    :cursor_offset: 391
-    :timestamp: 2012-10-08 13:47:18.911000 +02:00
-  - :path: app/controllers/words_controller.rb
-    :cursor_offset: 389
-    :timestamp: 2012-11-04 12:21:20.875000 +01:00
-  - :path: app/views/tests/show.html.erb
-    :cursor_offset: 327
-    :timestamp: 2012-10-08 17:38:32.920000 +02:00
-  - :path: app/views/words/_form.html.erb
-    :cursor_offset: 719
-    :timestamp: 2012-10-07 12:39:12.969000 +02:00
   - :path: .gitignore
     :cursor_offset: 435
     :timestamp: 2012-11-06 14:39:14.873000 +01:00
+  - :path: Gemfile
+    :cursor_offset: 400
+    :timestamp: 2012-11-06 15:01:41.058000 +01:00
+  - :path: app/views/layouts/_navigation.html.erb
+    :cursor_offset: 254
+    :timestamp: 2012-10-08 10:36:37.271000 +02:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 355
+    :timestamp: 2012-10-08 11:12:44.335000 +02:00
+  - :path: app/views/words/_form.html.erb
+    :cursor_offset: 463
+    :timestamp: 2012-10-07 12:39:12.969000 +02:00
+  - :path: app/controllers/words_controller.rb
+    :cursor_offset: 293
+    :timestamp: 2012-11-04 12:21:20.875000 +01:00
+  - :path: app/views/tests/show.html.erb
+    :cursor_offset: 21
+    :timestamp: 2012-11-06 15:46:03.319000 +01:00
+  - :path: app/views/tests/index.html.erb
+    :cursor_offset: 215
+    :timestamp: 2012-11-06 15:48:08.072000 +01:00
+  - :path: app/views/tests/edit.html.erb
+    :cursor_offset: 485
+    :timestamp: 2012-11-06 15:49:52.280000 +01:00
+  - :path: app/views/tests/_form.html.erb
+    :cursor_offset: 527
+    :timestamp: 2012-11-06 15:44:20.546000 +01:00
+  - :path: app/helpers/question_helper.rb
+    :cursor_offset: 6
+    :timestamp: 2012-11-10 19:22:07.333000 +01:00
+  - :path: app/helpers/categories_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-06 19:08:45.195000 +02:00
+  - :path: app/views/tests/flash.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-11-10 19:45:33.316000 +01:00
+  - :path: app/views/tests/_flash.html.erb
+    :cursor_offset: 136
+    :timestamp: 2012-11-10 19:46:22.467000 +01:00
+  - :path: app/views/tests/question.html.erb
+    :cursor_offset: 719
+    :timestamp: 2012-11-10 21:05:47.658000 +01:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 714
+    :timestamp: 2012-11-10 21:01:46.275000 +01:00
+  - :path: app/helpers/tests_helper.rb
+    :cursor_offset: 18
+    :timestamp: 2012-11-10 20:39:46.395000 +01:00
+  - :path: app/controllers/tests_controller.rb
+    :cursor_offset: 1731
+    :timestamp: 2012-11-10 21:01:08.244000 +01:00
+  - :path: app/helpers/questions_helper.rb
+    :cursor_offset: 30
+    :timestamp: 2012-11-10 21:03:53.851000 +01:00
+    :selection_offset: 47
+    :block_selection_mode: false
+  - :path: config/routes.rb
+    :cursor_offset: 471
+    :timestamp: 2012-11-11 13:39:01.584000 +01:00
+  - :path: app/views/tests/summary.html.erb
+    :cursor_offset: 11
+    :timestamp: 2012-11-11 10:49:21.775000 +01:00
 files_to_retain: 0
